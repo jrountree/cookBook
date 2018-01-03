@@ -1,0 +1,667 @@
+/* ::::: UNIVERSAL ::::: */
+ body {
+    overflow-y: scroll;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.left-align {
+    float: left;
+}
+
+.right-align {
+    float: right;
+}
+
+.content-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: calc(100vh - 250px);
+}
+
+.tabsheet {
+    position: relative;
+    top: -10px;
+}
+
+.tab a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 25px 5px 25px;
+    vertical-align: middle;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 20px 20px 0 0;
+    font-weight: 600;
+}
+
+.inactive {
+	background: #dcdcdc;
+}
+.active {
+    background: #cae2da;
+}
+
+
+
+.inactive:hover {
+	background: #c4dfec;
+}
+
+.sbsBtb {
+    background: #ff8244;
+    color: #fff !important;
+    border-radius: 0 !important;
+    border: 1px solid #562106;
+    border-bottom: none;
+    float: right;
+}
+
+.sbsBtb:hover {
+    background: #ea5910;
+    color: #ebf9f4 !important;
+}
+
+.importantTxt {
+    color: #4e0404;
+}
+
+
+section {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 1px solid #dddd;
+}
+
+* {
+	font-family: 'Domine', serif;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0;
+}
+
+h1 {
+	font-family: 'Montserrat', sans-serif;
+}
+
+h2,h3,h4,h5,h6 {
+	font-family: 'Domine', serif;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 10px;
+}
+
+button[disabled],
+button[disabled]:hover {
+    cursor: default;
+    background: #dcdcdc;
+    border: 3px solid #dcdcdc;
+    color: #b5b5b5;
+}
+
+
+/* :::: POP UP & SIGN UP:::: */
+.pop-up,
+.sign-up,
+.log-in {
+    position: fixed;
+    background: rgba(255,255,255,.75);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 9999;
+}
+
+.popup-container,
+.sign-up-form-container,
+.login-form-container {
+    background: #fff;
+    border: 4px solid #5383a5;
+    border-radius: 5px;
+    padding: 20px 40px;
+    width: 500px;
+    margin: 150px auto;
+}
+
+.popup-header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.popup-header h1 {
+    font-size: 35px;
+    margin-bottom: 0;
+}
+
+.popup-header h2 {
+	font-style: 5px;
+}
+
+.popup-nav {
+    text-align: right;
+}
+
+.popbtn {
+    background: #5383a5;
+    color: #fff;
+    padding: 10px 22px;
+    width: 145px;
+    text-align: center;
+    position: absolute;
+    top: 154px;
+}
+
+.popbtn:hover {
+	background: #76acd2;
+	color: #fff;
+	text-decoration: none;
+}
+
+.pop-left {
+    margin-left: -339px; /*btn offset adj*/
+}
+
+.pop-right {
+    margin-left: 9px; /*btn offset adj*/
+}
+
+.sign-up-form-container h1, 
+.sign-up-form-container h2,
+.login-form-container h1 {
+    text-align: center;
+}
+
+.sign-up-form-container h2 {
+    font-size: 18px;
+}
+
+.sign-up-form-container form,
+.login-form-container form {
+    margin-top: 30px;
+}
+
+.signupForm label,
+.login-form-container label {
+    display: inline-block;
+    width: 160px;
+}
+
+.signupForm input,
+.login-form-container input {
+    display: inline-block;
+    width: 248px;
+    margin: 3px 0;
+}
+
+.signupForm h3 {
+    font-size: 20px;
+    text-align: center;
+    margin: 18px 0;
+}
+
+.signup-btn {
+    padding: 14px 75px;
+    border: 3px solid #cae2da;
+    background: #cae2da;
+    margin: 30px auto;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.upRight {
+    float: left;
+    margin-left: -30px;
+    margin-top: -15px;
+}
+
+
+/* :::: SECTIONALS :::: */
+.img-container {
+    width: 100%;
+    height: 368px;
+    overflow: hidden;
+}
+
+.img-container img {
+	width: 100%;
+}
+
+.img-section {
+	width: 100%;
+    max-width: 550px;
+    height: 380px;
+}
+
+.img-nav-container {
+    position: relative;
+    margin-top: -42px;
+    width: 100%;
+    background: rgba(202,226,218,.35);
+    height: 42px;
+    text-align: center;
+    border: 1px solid #fff;
+}
+
+.img-nav-container a {
+    background: url("/img/strawberry-swissroll-top.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;	
+    background-position: center;
+    opacity: .8;
+    display: inline-block;
+    width: 79px;
+    height: 36px;
+    margin: 3px 2px;
+    border: 1px solid #fff;
+}
+.img-nav-container a:hover {
+	opacity: 1;
+}
+
+.recipe-review {
+    width: 100%;
+    max-width: 440px;
+    height: 380px;
+}
+
+.recipe {
+    width: 100%;
+}
+
+.recipe-lefthalf {
+    width: 100%;
+    max-width: 330px;
+}
+
+.recipe-righthalf {
+    width: 100%;
+    max-width: 627px;
+}
+
+.divider {
+    width: 1px;
+    background: #ddd;
+    float: left;
+    margin: 0 10px;
+}
+
+.section-header {
+    background: #cae2da;
+    padding: 10px;
+    text-align: center;
+}
+
+.section-header h3 {
+    font-size: 25px;
+}
+
+.recipe-header h1 {
+    text-align: center;
+    font-size: 35px;
+    background: #cae2da;
+    width: 100%;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.recipe-header h2 {
+    font-size: 20px;
+}
+
+.stars {
+    width: 100%;
+    text-align: center;
+}
+
+.star {
+    display: inline-block;
+    font-size: 30px;
+    margin: 0 5px;
+    color: #215f4a;
+}
+
+.ingredient-item h4 {
+    font-weight: 600;
+    height: 30px;
+}
+
+.left-ing {
+    float: left;
+    width: 70%;
+    max-width: 210px;
+}
+
+.mid-ing {
+    float: left;
+    width: 40px;
+}
+
+.right-ing {
+    float: right;
+    width: 80px;
+}
+
+.tools-right {
+	float: right;
+	width: 120px;
+}
+
+
+.ingredient-item ul li {
+    font-size: 12px;
+    height: 35px;
+}
+
+.special-notes {
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 0 25px;
+}
+
+.direct-overview {
+    width: 204px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.direct-overview h4 {
+    text-align: center;
+    font-weight: 600;
+}
+
+.direct-overview ul {
+    display: inline-block;
+    width: 100px;
+}
+
+.direct-step {
+    padding-left: 10px;
+}
+
+.direct-step h4 {
+    font-weight: 600;
+}
+
+.recipeSelection {
+    margin-top: 134px; /*Top Offset */
+}
+
+.selectedHeader {
+    width: 100%;
+}
+
+.selectedHeader h1 {
+    display: block;
+ }
+
+.selectedData {
+    float: right;
+    width: 730px;
+    margin-top: 10px;
+}
+
+.selectedHeader button {
+    position: absolute;
+    left: 258px;
+    margin-top: 18px;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 8px 20px;
+    font-weight: 600;
+    background: #cae2da;
+    border: none;
+    letter-spacing: 2px;
+}
+
+.selectedHeader button:focus {...........0000000000   
+    border: none;...........0000000000   
+}
+
+.selectedHeader button:hover {
+    background: #c4dfec;
+}
+
+
+/*:: EDIT TABS ::*/
+.form-sheet {
+    border: 1px solid #d3d3d3;
+    background: #fff;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    height: 134px;
+}
+
+.form-section {
+    margin-top: 5px;
+}
+
+.form-section label {
+    width: 190px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.form-section input {
+    width: 350px;
+    height: 35px;
+}
+
+#spec_specific,
+#direction,
+#tool_use {
+    width: 350px;
+    height: 75px;
+    vertical-align: middle;
+}
+
+.form-btn {
+    margin-right: 20px;
+    padding: 14px 0;
+    border: 3px solid #cae2da;
+    background: #cae2da;
+    position: absolute;
+    top: 27px;
+    right: 0;
+    font-weight: 600;
+    letter-spacing: 3px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    width: 212px;
+    margin-top: 12px;
+}
+
+.form-btn:hover,
+.signup-btn:hover {
+    background: #c4dfec;
+    border: 3px solid #c4dfec;
+}
+
+.form-tab option {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #03251a;
+    margin: 0 5px 0 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.ft-active {
+    background: #fff;
+    z-index: 999;
+    border-color: #d3d3d3;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+    padding:-1px -1px 0 -1px;
+}
+
+.ft-inactive {
+    background: #dcdcdc;
+}
+
+.selectedData ul li {
+    border: 1px solid #d3d3d3;
+    margin: 5px 0;
+    padding: 5px 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 680px;
+}
+
+.list-group-item:hover > .list-group li {
+    background: #000;
+}
+
+.list-group li {
+    background: #fff;
+}
+
+.list-group-item:hover {
+	background: #c4dfec;
+}
+
+
+
+.removeItem {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px;
+    color: #969696;
+}
+
+.removeItem:hover {
+	color: #ff8244;
+}
+
+.ng-binding i {
+    margin-right: 7px;
+    color: #689687;
+}
+
+.arrows {
+    margin: 2px 0;
+    position: absolute;
+    right: 30px;
+    color: #bbb9b9;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.left-item {
+    width: 445px;
+    display: inline-block;
+}
+
+.mid-item {
+    position: absolute;
+    right: 194px;
+}
+
+.right-item {
+    position: absolute;
+    right: 70px;
+}
+
+.edit-in-place span {
+  cursor: pointer;
+}
+
+.edit-in-place input {
+  display: none;
+}
+
+.edit-in-place.active span {
+  display: none;
+}
+
+.edit-in-place.active input {
+  display: inline-block;
+}
+
+
+.moveable {
+    list-style: none;
+    margin: 0;
+}
+
+.moveable li {
+    cursor: move;
+}
+/*:: FOOTER :: */
+footer {
+    background: #222 !important;
+    padding: 55px 0;
+    text-align: center;
+    color: #fff;
+}
+
+footer a,
+footer a:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ff8244;
+}
+
+.icons-sm {
+    color: #cae2da;
+    margin: 0 24px;
+}
+
+.col-md-12 {
+    margin: 15px 0;
+}
+
+
+
+
+
+
+/*:: SWITCHES ::*/
+.off {
+	display: none;
+}
+.on {
+	display: block;
+}
+
+
+
+
+
+.testDiv ul li {
+    width: 100px;
+    display: block;
+    padding: 6px 0;
+    background: #f1f1d6;
+    margin: 30px 0;
+}

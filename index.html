@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>the Family Cook Book | using Angularjs & Bootstrap | By Jesse Rountree</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- EXTERNAL LINKS -->	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Domine:400,700|Montserrat:400,600" rel="stylesheet">
+		<!--<link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- SCRIPTS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<!-- CUSTOM SCRIPTS -->
+		<script src="scripts/app.js"></script>
+		<script src="scripts/jQuery.js"></script>
+		<script src="scripts/cookbookController.js"></script>
+		<script src="scripts/cookbookFactory.js"></script>
+		<script src="scripts/directives/directives.js"></script>
+		<script src="scripts/controllers/main.js"></script>
+		<script src="scripts/controllers/sortable.js"></script>
+
+
+	<!-- FAVICON -->
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	</head>
+	<body ng-app="ngCookbook" ng-controller="cookbookcontroller">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+			    <div class="navbar-header">
+					<a class="navbar-brand" href="#">the Family Cookbook</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Featured Savory</a></li>
+					<li><a href="#">Featured Dessert</a></li>
+			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
+					<li><a href="#" ng-click="toggleSignUpon()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="#" ng-click="toggleLogIn()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			    </ul>
+		  </div>
+		</nav>
+		<div class="log-in off" ng-class="logIn">
+			<div class="login-form-container">
+				<i class="fa fa-times removeItem upRight" aria-hidden="true" ng-click="toggleLoginOn()"></i>
+				<h1>Member Log In</h1>
+				<form class="loginForm">
+					<label>Email: </label>
+					<input type="text" name="email" value="">
+					<label>Password: </label>
+					<input type="password" name="password" value="">
+					<button type="submit" class="signup-btn" ng-click="toggleLoginOn()" ng-class="logInOn"> Submit </button>
+				</form>
+			</div>
+		</div>
+
+
+
+		<div class="sign-up off" ng-class="signUpOn">
+			<div class="sign-up-form-container">
+				<i class="fa fa-times removeItem upRight" aria-hidden="true" ng-click="toggleSignUp()"></i>
+				<h1>Sign Up Today</h1>
+				<h2>Share and Create Great Recipes</h2>
+				<form class="signupForm">
+					<label>First name: </label>
+					<input type="text" name="firstName" value="">
+					<label>Last name: </label>
+					<input type="text" name="lastName" value="">
+					<label>Email: </label>
+					<input type="text" name="email" value="">
+					<h3>Request to join a family</h3>
+					<label>Family name to join: </label>
+					<input type="text" name="joinFamilyName" value="">
+					<h3>Start a Family Group</h3>
+					<label>Family name to start: </label>
+					<input type="text" name="startFamilyName" value="">
+
+					<button type="submit" class="signup-btn" ng-click="toggleSignUp()" ng-class="signUpOn"> Submit </button>
+				</form>
+			</div>
+		</div>
+		<div class="pop-up off" ng-class="popToggle">	
+			<div class="popup-container">
+				<div class="popup-header">
+					<h1>Step by Step</h1>
+					<h2>Directions</h2>
+				</div>
+				<div class="popup-body" >
+					<h3>Step 1</h3>
+					<div class="overflow-scroll">
+						<p>Preheat oven to 375</p>
+					</div>
+				</div>
+				<div class="popup-nav">
+					<a link="#" class="popbtn pop-left">Previous Step</a>
+					<a link="#" class="popbtn pop-right">Next Step</a>
+					<a link="#" class="popexitbtn pop-bottom" ng-click="popUpOff()">Exit Step by Step</a>
+				</div>
+			</div>
+		</div>	
+		<div class="content-container clearfix">
+			<div class="tab">
+				<a link="#" class="inactive" ng-class="recipeActive" ng-click="toggleRecipeOn()">Recipe Sheet</a>
+				<a link="#" class="inactive" ng-class="editActive" ng-click="toggleEditOn()">Edit Recipe <i class="fa fa-pencil-square fa-lg mr-md-4"> </i></a>
+				<a link="#" class="sbsBtb" ng-click="popUpOn()">Start <span class="importantTxt">Step By Step</span> Directions</a>	
+			</div>	
+	<!-- Recipe Sheet -->
+		<div class="tabsheet clearfix" ng-class="recipeOn" ng-repeat="recipe in cookBookdata">
+		<section class="img-section left-align clearfix">
+			<div class="img-container"><img ng-src="{{recipe.image}}" alt="{{recipe.image}}" /></div>
+			<div class="img-nav-container">
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+			</div>
+		</section>
+		<section class="recipe-review right-align clearfix">
+			<div class="recipe-header">
+				<h1>{{recipe.name}}</h1>
+				<ul class="stars">
+					<li class="star">&starf;</li>
+					<li class="star">&starf;</li>
+					<li class="star">&starf;</li>
+					<li class="star">&starf;</li>
+					<li class="star">&star;</li>
+				</ul>
+				<h2>{{recipe.recipeBy}}</h2>
+			</div>
+			<div class="recipe-summery">
+				<p>{{recipe.description}}</p>
+			</div>
+
+		</section>
+		<section class="recipe left-align clearfix">
+			<div class="recipe-lefthalf left-align clearfix">
+				<div class="direct-overview">
+					<h4>Cooking Specs</h4>
+					<ul>
+						<li>Serving Size:</li>
+						<li>Oven Temp:</li>
+						<li>Total Time:</li>
+						<li>Prep Time:</li>
+						<li>Cook Time:</li>
+					</ul>
+					<ul>
+						<li>{{recipe.serving}}</li>
+						<li>{{recipe.temp}}</li>
+						<li>{{recipe.totalTime}}</li>
+						<li>{{recipe.prepTime}}</li>
+						<li>{{recipe.cookTime}}</li>
+					</ul>
+				</div>
+				<div class="section-header">
+					<h3>Ingredients</h3>
+				</div>
+				<div class="ingredient-item left-ing clearfix">
+					<h4>Ingredient</h4>
+					<ul>
+						<li ng-repeat="item in recipe.ingredients">{{item.type}}</li>	
+					</ul>
+				</div>
+				<div class="ingredient-item mid-ing clearfix">
+					<h4>Measurement</h4>
+					<ul>
+						<li ng-repeat="qty in recipe.ingredients">{{qty.measure}}</li>
+					</ul>
+				</div>
+				<div class="ingredient-item right-ing clearfix">
+					<h4></h4>
+					<ul>
+						<li ng-repeat="type in recipe.ingredients">{{type.measureType}}</li>
+					</ul>
+				</div>
+				<div class="special-notes">
+					<p><b>&star;</b> {{recipe.note}}</p>
+				</div>
+				<div class="ingredient-item left-ing clearfix">
+					<h4>Tools</h4>
+					<ul>
+						<li ng-repeat="tool in recipe.tools">{{tool.tool}}</li>
+					</ul>
+				</div>
+				<div class="ingredient-item tools-right clearfix">
+					<h4></h4>
+					<ul>
+						<li ng-repeat="type in recipe.tools">{{type.use}}</li>
+					</ul>
+				</div>	
+			</div>
+			
+			<div class="divider clearfix"></div>
+			<div class="recipe-righthalf right-align clearfix">
+				<div class="section-header">
+					<h3>Directions</h3>
+				</div>
+
+				<div class="direct-step" ng-repeat="step in recipe.directions">
+					<h4>{{step.header}}</h4>
+					<p>{{step.ptag}}</p>
+					
+				</div>
+			</div>
+		</section>
+	</div> <!-- End Recipe Sheet -->
+	<!-- Edit Sheet Sheet -->
+	<div class="tabsheet clearfix off scrollAdj" ng-class="editOn" ng-repeat="recipe in cookBookdata" ng-controller="editcontroller">
+		<section>
+			<div class="form-tab" ng-model="selected_value">
+				<option class="inactive" ng-class="tab1class" ng-click="tab1On()" value="Ingredients">Add Ingredient</a>
+				<option class="inactive" ng-class="tab2class" ng-click="tab2On()" value="Tools">Add Tool</a>
+				<option class="inactive" ng-class="tab3class" ng-click="tab3On()" value="Steps">Add Direction</a>
+				<option class="inactive" ng-class="tab4class" ng-click="tab4On()" value="Cooking Specs">Add Specs</a>
+			</div>	
+			<div class="form-sheet" ng-class="sheet1On">
+
+				<form name="frm" ng-submit="addIngredient()" novalidate>
+					<div class="form-section">
+						<label for="ingredient">Ingredient</label>
+						<input type="text" name="newIngredient" ng-model="newIngredient" required>
+					</div>
+					<div class="form-section">
+						<label for="quantity">Quantity</label>
+						<input type="text" name="newQty" ng-model="newQty" required>
+					</div>
+					<div class="form-section">
+						<label for="msr_type">Type of Measurement</label>
+						<input type="text" name="newType" ng-model="newType" required>
+					</div>
+						<button class="form-btn" ng-disabled="frm.$invalid">
+							<i class="fa fa-plus-square fa-lg mr-md-4"> </i> 
+							Ingredient 
+						</button>
+				</form>
+			</div>
+			<div class="form-sheet off" ng-class="sheet2On">
+				<form>
+					<div class="form-section">
+						<label for="tool">Tool</label>
+						<input type="text" id="tool" name="user_tool">
+					</div>
+					<div class="form-section">
+						<label for="tool_use">Tool Use</label>
+						<textarea id="tool_use" name="user_tool_use"></textarea>
+					</div>
+					<button type="submit" class="form-btn"><i class="fa fa-plus-square fa-lg mr-md-4"> </i> Tool</button>
+				</form>
+			</div>
+			<div class="form-sheet off" ng-class="sheet3On">
+				<form>
+					<div class="form-section">
+						<label for="direction_num">Step Number</label>
+						<input type="text" id="direction_num" name="user_direction_num">
+					</div>
+					<div class="form-section">
+						<label for="direction">Direction</label>
+						<textarea id="direction" name="user_direction"></textarea>
+					</div>
+					<button type="submit" class="form-btn"><i class="fa fa-plus-square fa-lg mr-md-4"> </i> Direction</button>
+				</form>
+			</div>
+			<div class="form-sheet off" ng-class="sheet4On">
+				<form>
+					<div class="form-section">
+						<label for="spec">Cooking Spec</label>
+						<input type="text" id="spec" name="user_spec">
+					</div>
+					<div class="form-section">
+						<label for="spec_specific">Degrees / Time / etc</label>
+						<textarea id="spec_specific" name="user_spec_specific"></textarea>
+					</div>
+					<button type="submit" class="form-btn"><i class="fa fa-plus-square fa-lg mr-md-4"> </i> Cooking Spec</button>
+				</form>
+			</div>
+		</section>
+		<section class="recipeSelection clearfix">
+			<div class="selectedHeader">
+				<button ng-click="clearitem()" ng-mouseover="hoverChange()">Delete Selected</button>
+				<h1>Ingredients</h1>				
+			</div>
+			<div class="selectedData" >
+				<ul class="list-group">
+					<div class="editItem list-group-item" ng-class="keep" ng-repeat="item in recipe.ingredients" >
+						<!--<i class="fa fa-times removeItem" aria-hidden="true" ng-click="clearitem()"></i>-->
+						<input type="checkbox" ng-model="item.done" />
+						<li ng-class="{'done':item.done}">
+							<i class="fa fa-pencil-square"> </i>
+							<span ng-class="{'done':item.done}" class="listItem">
+								<span class="left-item" ng-click="editListItem()">
+									<edit-in-place value="item.type"></edit-in-place>
+								</span>
+								<span class="mid-item" >
+									<edit-in-place value="item.measure"></edit-in-place>
+								</span>
+								<span class="right-item" >
+									<edit-in-place value="item.measureType"></edit-in-place></span>
+							</span>
+							<i class="fa fa-arrows arrows" aria-hidden="true" ng-click="moveItem()"></i>
+						</li>
+					</div>	
+				</ul>
+			</div>
+			  
+		</section>
+	</div>	<!-- End Edit Sheet -->
+</div>	
+<!--Footer-->
+<footer class="page-footer indigo center-on-small-only pt-0">
+    <!--Footer Links-->
+    <div class="container">
+        <!--First row-->
+        <div class="row">
+            <!--First column-->
+            <div class="col-md-12">
+                <div class="footer-socials mb-5 flex-center">
+                    <!--Facebook-->
+                    <a class="icons-sm fb-ic" href="" title="My Facebook" target="_blank"><i class="fa fa-facebook fa-lg mr-md-4"> </i></a>
+                    <!--Google +-->
+                    <a class="icons-sm gplus-ic" href="" title="My Google Plus" target="_blank"><i class="fa fa-google-plus fa-lg mr-md-4"> </i></a>
+                    <!--Linkedin-->
+                    <a class="icons-sm li-ic" href="" title="My LinkedInn" target="_blank"><i class="fa fa-linkedin fa-lg mr-md-4"> </i></a>
+                </div>
+            </div>
+            <!--/First column-->
+        </div>
+        <!--/First row-->
+    </div>
+    <!--/Footer Links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            &copy;<a href="http://www.jesserountree.com" title="My Portfolio Site" target="_blank"> Jesse Rountree</a>: 2018
+        </div>
+    </div>
+    <!--/Copyright-->
+
+</footer>
+<!--/Footer-->
+	
+	</body>
+</html>
