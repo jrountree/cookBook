@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>the Family Cook Book | using Angularjs & Bootstrap | By Jesse Rountree</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- EXTERNAL LINKS -->	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Domine:400,700|Montserrat:400,600" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- SCRIPTS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="scripts/app.js"></script>
+	<!-- CUSTOM SCRIPTS -->	
+		<script src="scripts/cookbookController.js"></script>
+		<script src="scripts/cookbookFactory.js"></script>
+	<!-- FAVICON -->
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	</head>
+	<body ng-app="ngCookbook">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+			    <div class="navbar-header">
+					<a class="navbar-brand" href="#">the Family Cookbook</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li>
+			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			    </ul>
+		  </div>
+		</nav>
+		<div class="pop-up">	
+			<div class="popup-container">
+				<div class="popup-header">
+					<h1>Step by Step</h1>
+					<h2>Directions</h2>
+				</div>
+				<div class="popup-body">
+					<h3>Step 1</h3>
+					<div class="overflow-scroll">
+						<p>Preheat oven to 375</p>
+					</div>
+				</div>
+				<div class="popup-nav">
+					<a link="#" class="popbtn pop-left">Previous Step</a>
+					<a link="#" class="popbtn pop-right">Next Step</a>
+					<a link="#" class="popexitbtn pop-bottom">Exit Step by Step</a>
+				</div>
+			</div>
+		</div>	
+		<div class="content-container clearfix">
+			<div class="tab">
+				<a link="#" class="active">Recipe Sheet</a>
+				<a link="#" class="inactive">Edit Recipe</a>
+				<a link="#" class="sbsBtb">Start <span class="importantTxt">Step By Step</span> Directions</a>	
+			</div>	
+	<!-- Recipe Sheet -->
+		<div class="tabsheet clearfix off">
+		<section class="img-section left-align clearfix">
+			<div class="img-container"></div>
+			<div class="img-nav-container">
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+			</div>
+		</section>
+		<section class="recipe-review right-align clearfix">
+			<div class="recipe-header">
+				<h1>Chocolate Covered Strawberry Swissroll</h1>
+				<ul class="stars">
+					<li class="star">&starf;</li>
+					<li class="star">&starf;</li>
+					<li class="star">&starf;</li>
+					<li class="star">&starf;</li>
+					<li class="star">&star;</li>
+				</ul>
+				<h2>Recipe By: Jesse Rountree</h2>
+			</div>
+			<div class="recipe-summery">
+				<p>This decadent swissroll cake combines the savory sweetness of chocolate covered strawberries with the delicate flavors of a shortcake inspired rolled sponge, all packed with an amazing cream cheese frosting. Is it strawberry shortcake? Is it a chocolate covered strawberry?  Is is a swissroll cake?  The answer is, <i>yes</i>.</p>
+			</div>
+
+		</section>
+		<section class="recipe left-align clearfix">
+			<div class="recipe-lefthalf left-align clearfix">
+				<div class="direct-overview">
+					<h4>Cooking Specs</h4>
+					<ul>
+						<li>Oven Temp:</li>
+						<li>Total Time:</li>
+						<li>Prep Time:</li>
+						<li>Cook Time:</li>
+					</ul>
+					<ul>
+						<li>375</li>
+						<li>1 Hour</li>
+						<li>45 minutes</li>
+						<li>10 - 15 minutes</li>
+					</ul>
+				</div>
+				<div class="section-header">
+					<h3>Ingredients</h3>
+				</div>
+				<div class="ingredient-item left-ing clearfix">
+					<h4>Ingredient</h4>
+					<ul>
+						<li>Powdered Sugar</li>
+						<li>Powdered Sugar</li>
+						<li>Granulated Sugar</li>
+						<li>All Purpose Flour</li>
+						<li>Eggs</li>
+						<li>Milk Chocolate Chips</li>
+						<li>Vegetable Oil or Shortening</li>
+						<li>Fresh Strawberries</li>
+						<li>Cream Cheese</li>
+						<li>Heavy Cream</li>
+						<li>Vanilla</li>
+						<li>Water</li>
+						<li>Butter</li>
+					</ul>
+				</div>
+				<div class="ingredient-item mid-ing clearfix">
+					<h4>Measurement</h4>
+					<ul>
+						<li>4.5</li>
+						<li>&star;</li>
+						<li>2</li>
+						<li>4.5</li>
+						<li>4</li>
+						<li>1.5</li>
+						<li>1</li>
+						<li>1</li>
+						<li>16</li>
+						<li>.5</li>
+						<li>2</li>
+						<li>1</li>
+						<li>1/8</li>
+					</ul>
+				</div>
+				<div class="ingredient-item right-ing clearfix">
+					<h4></h4>
+					<ul>
+						<li>Ounces</li>
+						<li>&star;</li>
+						<li>Cup</li>
+						<li>Ounces</li>
+						<li>Whole</li>
+						<li>Cup</li>
+						<li>Teaspoon</li>
+						<li>Pint</li>
+						<li>Ounces</li>
+						<li>Cup</li>
+						<li>Teaspoon</li>
+						<li>Tablespoon</li>
+						<li>Cup</li>
+					</ul>
+				</div>
+				<div class="special-notes">
+					<p><b>&star;</b> For Dusting, so use as much as you want, or as little as you want</p>
+				</div>
+				<div class="ingredient-item left-ing clearfix">
+					<h4>Tools</h4>
+					<ul>
+						<li>Kitchen Aid</li>
+						<li>Jelly or Swissroll Pan</li>
+						<li>Parchnip Paper</li>
+						<li>Sauce Pan</li>
+						<li>Heat Safe Glass Bowl</li>
+						<li>Flour Sifter</li>
+						<li>General measuring tools</li>
+					</ul>
+				</div>
+				<div class="ingredient-item tools-right clearfix">
+					<h4></h4>
+					<ul>
+						<li>For Whipping / Mixing</li>
+						<li>For Baking</li>
+						<li>For Baking / Rolling</li>
+						<li>For Melting Chocolate</li>
+						<li>For Melting Chocolate</li>
+						<li>For Sifting Flour</li>
+						<li>Spoons, Cups, etc...</li>
+					</ul>
+				</div>	
+			</div>
+			
+			<div class="divider clearfix"></div>
+			<div class="recipe-righthalf right-align clearfix">
+				<div class="section-header">
+					<h3>Directions</h3>
+				</div>
+
+				<div class="direct-step">
+					<h4>Step 1</h4>
+					<p>Preheat oven to 375</p>
+					<h4>Step 2</h4>
+					<p>Butter your Swissroll pan on bottom and edges. Cut Parchnip Paper to fit inside of your Swissroll pan to cover bottom and edges.</p>
+					<h4>Step 3: Make your sponge</h4>
+					<p>Seperate egg yokes from egg whites, keep yokes in one bowl and the whites in another.</p>
+					<h4>Step 4</h4>
+					<p>In Kitchen Aid, whip egg whites, 1/2 of the vanilla and water. While egg whites are whipping, slowly add in the 4.5 ounces of powdered sugar.  Whip until egg whites are fluffy and makes stiff peeks. This should take a few minutes.</p>
+					<h4>Step 5</h4>
+					<p>Remove egg whites from Kitchen Aid into a large bowl carefully, try to keep them as airy as possible.  Clean mixing bowl and whisk.</p>
+					<h4>Step 6</h4>
+					<p>In Kitchen Aid, whisk the egg yokes and whip until fluffy.</p>
+					<h4>Step 7</h4>
+					<p>Using the flour sifter, slowly sift in and fold flour into egg yokes until flour is mixed in.  Be careful not to over mix, and to keep as much air in them as possible.</p>
+					<h4>Step 8</h4>
+					<p>Fold half of the yokes into the egg whites VERY carefully.  Then fold the other half in. Be very, VERY gentle in this process. Batter must remain nice and airy.</p>
+					<h4>Step 9</h4>
+					<p>Gently pour batter into your Swissroll pan evenly.</p>
+					<h4>Step 10</h4>
+					<p>Place into center rack of your oven and bake for 10 to 15 minutes. DO NOT OVER BAKE. Batter should be very golden and light and spring back when touched. DO NOT OVER BAKE.</p>
+					<h4>Step 11</h4>
+					<p>Remove from oven and carefully flip sponge out onto another sheet of parchnip paper. Very carefully, gently roll the sponge. Cover with a damp paper towl and let cool completely.</p>
+					<h4>Step 12: Make your filling</h4>
+					<p>While sponge cools, make the cream cheese filling. Clean the kitchen aid and then add in cream cheese, the rest of the vanilla, granulated sugar and about a third of the heavy cream. Whisk until you have a nice, thick, and creamy texture and the cream cheese in completely mixed in.</p>
+					<h4>Step 13</h4>
+					<p>Taste your filling. Not sweet enough?  Add more sugar. To runny? Add more cream cheese or sugar. Too thick? Add more heavy cream. Filling should be on the thicker side, so be conservative with the heavy cream. If you like it, put some plastic wrap over the top of the bowl and store in fridge to set.</p>
+					<h4>Step 14: Prepare your strawberries</h4>
+					<p>Wash your strawberries. Pat them dry. Remove 4 or 5, or however many you want on top, and then the rest slice into very thin slices. They need to be rolled, so slice them very thinly.</p>
+					<h4>Step 15</h4>
+					<p>Roll out your sponge and spread your filling over it leaving a 1/4 of an inch from the edges.</p>
+					<h4>Step 16</h4>
+					<p>Lay out your sliced strawberries in an even layer, covering the entire filling.</p>
+					<h4>Step 17</h4>
+					<p>Using the parchnip paper for aid, very carefull reroll the sponge. Keep the roll tight, but allow the filling to roll with it. This takes a little finesse and patience, and the thicker the strawberries are, the harder it will be.</p>
+					<h4>Step 18</h4>
+					<p>Transfer to a serving tray and wrap in plastic wrap, store in fridge to reset.</p>
+					<h4>Step 19: Make your chocolate</h4>
+					<p>Fill a third of your sauce pan with water and heat on medium low heat. Place a heat safe glass bowl on top of the sauce pan and add two thirds of your chocolate chips. Still continuously until chips begin to melt, which will take a while.</p>
+					<h4>Step 20</h4>
+					<p>Once chocolate is melted, take bowl off of heat. Add the rest of your chocolate chips into the chocolate and stirr until melted. This process will give your chocolate a beautiful shine.</p>
+					<h4>Step 21: Decorate your cake</h4>
+					<p>Take cake out of fridge and remove plastic wrap. Dust with powdered sugar to your liking.</p>
+					<h4>Step 22</h4>
+					<p>Using a spoon, drizzle melted chocolate over the top of the cake in whatever fashion you think is pretty. I whipped it back and forth, letting it whip onto the plate as well.</p>
+					<h4>Step 23</h4>
+					<p>Using the strawberries you set aside, dip each one into the chocolate to coat and place directly onto the cake. The chocolate will harden and glue it to the surface.</p>
+					<h4>Step 24</h4>
+					<p>Eat and enjoy! Takes lots of pictures to make your friends jealous!</p>
+				</div>
+			</div>	
+		</section>
+
+	</div> <!-- End Recipe Sheet -->
+	<!-- Edit Sheet Sheet -->
+	<div class="tabsheet clearfix on">
+		<section>
+			<h1>Hi!</h1>
+		</section>
+
+
+	</div>	<!-- End Edit Sheet -->
+	
+	</div>	
+	</body>
+</html>

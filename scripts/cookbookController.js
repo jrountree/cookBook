@@ -1,5 +1,5 @@
 var ngCookbook = angular
-	.module('ngCookbook',[]);
+	.module('ngCookbook',[ "ui.sortable" ]);
 
 	ngCookbook.controller('cookbookcontroller', function($scope, cookbookFactory) {
 		$scope.cookBookdata;
@@ -89,6 +89,46 @@ var ngCookbook = angular
 			$scope.logIn = "off";
 		}
 
-		
 
-}) // end cookbookController
+
+
+
+}); // end cookbookController
+
+
+
+ngCookbook.controller('sortableController', ['$scope', function ($scope) {
+	console.log("booooooob");
+
+	$scope.itemsTest = [{'name':'learn Sortable',
+                      'id':'use gn-sortable',
+                     'dance':'Enjoy'},
+                       {'name':'holy hell',
+                      'id':'use gn-sortable',
+                     'dance':'Enjoy'},
+                       {'name':'rabbit',
+                      'id':'use gn-sortable',
+                     'dance':'Enjoy'}];
+ // var tmpList = $scope.sortableItem;
+  
+ // $scope.list = tmpList;
+  
+  
+ // $scope.sortingLog = [];
+  /*
+  $scope.sortableOptions = {
+    update: function(e, ui) {
+      var logEntry = tmpList.map(function(i){
+        return i.value;
+      }).join(', ');
+      $scope.sortingLog.push('Update: ' + logEntry);
+    },
+    stop: function(e, ui) {
+      // this callback has the changed model
+      var logEntry = tmpList.map(function(i){
+        return i.value;
+      }).join(', ');
+      $scope.sortingLog.push('Stop: ' + logEntry);
+    }
+  };*/
+   }]);

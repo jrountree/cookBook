@@ -1,33 +1,40 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>the Family Cook Book | using Angularjs & Bootstrap | By Jesse Rountree</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- EXTERNAL LINKS -->	
+		<!-- FONTS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Domine:400,700|Montserrat:400,600" rel="stylesheet">
-		<!--<link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<!-- STYLES -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/responsive.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">	
 	<!-- SCRIPTS -->
+		<!-- jQuery & Angularjs -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+		<script src="https://rawgithub.com/angular-ui/ui-sortable/master/src/sortable.js"></script>
+		 <!-- Sortable.js -->
+		<script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
+
+		<!-- ng-sortable.js -->
+		<script src="http://rubaxa.github.io/Sortable/ng-sortable.js"></script>
+		<!--Bootstrap -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-	<!-- CUSTOM SCRIPTS -->
+
+	<!-- LOCAL SCRIPTS -->
 		<script src="scripts/app.js"></script>
 		<script src="scripts/jQuery.js"></script>
 		<script src="scripts/cookbookController.js"></script>
 		<script src="scripts/cookbookFactory.js"></script>
 		<script src="scripts/directives/directives.js"></script>
 		<script src="scripts/controllers/main.js"></script>
-		<script src="scripts/controllers/sortable.js"></script>
-
-
+		<script src="scripts/controllers/sortableController.js"></script>
 	<!-- FAVICON -->
 		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
@@ -286,13 +293,12 @@
 		</section>
 		<section class="recipeSelection clearfix">
 			<div class="selectedHeader">
-				<button ng-click="clearitem()" ng-mouseover="hoverChange()">Delete Selected</button>
+				<button ng-click="clearitem()" >Delete Selected</button>
 				<h1>Ingredients</h1>				
 			</div>
-			<div class="selectedData" >
-				<ul class="list-group">
-					<div class="editItem list-group-item" ng-class="keep" ng-repeat="item in recipe.ingredients" >
-						<!--<i class="fa fa-times removeItem" aria-hidden="true" ng-click="clearitem()"></i>-->
+			<div class="selectedData">
+				<ul class="list-group" >
+					<div class="editItem list-group-item" ng-class="keep"  ng-repeat="item in recipe.ingredients" ng-mouseover="hoverChange()" ng-sortable="{animation:150}">
 						<input type="checkbox" ng-model="item.done" />
 						<li ng-class="{'done':item.done}">
 							<i class="fa fa-pencil-square"> </i>
@@ -310,8 +316,15 @@
 						</li>
 					</div>	
 				</ul>
+			
 			</div>
-			  
+		<div class="deleteMEiAmJustaTest" ng-controller="sortableController">
+			<ul ng-sortable="{animation:150}">
+				<li ng-repeat="itemtester in itemsTest">
+			  	 	{{itemtester.name}}
+				</li>
+			</ul>
+		</div>
 		</section>
 	</div>	<!-- End Edit Sheet -->
 </div>	
