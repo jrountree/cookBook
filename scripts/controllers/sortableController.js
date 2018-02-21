@@ -1,3 +1,5 @@
+$('.list-group-item').sortable({placeholder: "ui-state-highlight",helper:'clone'});
+
 /*angular.module('myApp', ['ng-sortable'])
     .controller('demo', ['$scope', function ($scope) {
         $scope.items = [{'name':'learn Sortable',
@@ -48,5 +50,4 @@ angular.module( "ngCookbook", [ "ui.sortable" ] )
 			$scope.recipeItems = $scope.cookBookdata;
 	})
 
-  
 */

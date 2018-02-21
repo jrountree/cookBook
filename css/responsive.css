@@ -1,0 +1,250 @@
+@media (max-width: 1130px) {
+	.left-align,
+	.right-align,
+	.selectedData {
+    	float: none;
+	}
+
+	.tab,
+	.img-section,
+	.recipe-review,
+	.recipe-lefthalf,
+	.recipe-righthalf,
+	.form-sheet,
+	.form-btn,
+	.recipeSelection,
+	.selectedData {
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+
+	.tab,
+	.recipe-review,
+	.recipe-lefthalf,
+	.recipe-righthalf,
+	.form-sheet,
+	.recipeSelection,
+	.selectedData,
+	.selectedData ul li {
+    	 max-width: 550px;
+	}
+
+	.special-notes {
+    	float: left;
+	}
+
+	.img-container,
+	.img-section {
+		height: inherit;
+	}
+
+	.tab {
+    	display: block;
+    	width: 100%;
+	}
+
+	.editing-section {
+	    text-align: center;
+	    height: 245px;
+	}
+
+	.form-sheet {
+		position: inherit;
+    	border: none;
+    	height: inherit;
+	}
+
+	.form-btn {
+	    position: absolute;
+	    top: 177px;
+	    left: 0;
+	}
+
+	.recipeSelection {
+	    margin-top: 0;
+	    padding: 0;
+	}
+
+	.selectedHeader button {
+	    position: inherit;
+	    float: right;
+	    margin: 5px 0;
+	}
+
+	.selectedData ul li,
+	.list-group-item {
+    	margin: 0;
+    	border: none;
+    	width: 545px;
+	}
+
+	.list-group-edit-container {
+       	width: 518px;
+	}
+
+
+} /*  /1130  ::::::::::::::::::::::::::::::::::::::::::: */
+@media (max-width: 639px) {
+	.editing-section {
+	    height: 345px;
+	}
+
+	.form-btn {
+      	top: 280px;
+	}
+
+	.selectedHeader button {
+    	margin: 5px 25px;
+	}
+
+} /*  /645  ::::::::::::::::::::::::::::::::::::::::::: */
+@media (max-width: 625px) {
+
+	.tab,
+	.recipe-review,
+	.recipe-lefthalf,
+	.recipe-righthalf,
+	.form-sheet,
+	.recipeSelection,
+	.selectedData,
+	.selectedData ul li {
+    	 max-width: 100%;
+	}
+
+
+
+	.img-nav-container {
+		width: 75px;
+		height: 100%;
+		margin-top: -263px; 
+	}
+
+	.img-nav-container a {
+        width: 62px;
+	    margin: 1px 2px;
+ 	}
+ 
+ 	.list-group-edit-container {
+        	width: calc(100% - 18px);
+        	font-size: 10px;
+ 	}
+ 
+ 	.left-item {
+     	width: 130px;
+ 	}
+ 
+ 	.mid-item {
+        	right: 74px;
+     	width: 30px;
+ 	}
+ 
+ 	.right-item {
+ 		right: 7px;
+ 	b	width: 56px;
+ 	}
+ 
+ } /*  /625  ::::::::::::::::::::::::::::::::::::::::::: */
+ @media (max-width: 426px) {
+ 	.tab {
+     	text-align: center;
+ 	}
+ 
+ 	.tab a {
+ 	    font-size: 9px;
+ 	    padding: 10px 7px 5px 10px;
+ 	}
+ 
+ 	.img-nav-container {
+       	margin-top: -170px;
+       	width: 55px;
+ 	}
+ 
+	.img-nav-container a {
+	    width: 46px;
+	    margin: 0 auto;
+	    height: 23px;
+	}
+
+	.recipe-review {
+	    width: 100%;
+	    max-width: 440px;
+	    height: 535px;
+	}
+
+	.left-ing {
+	    max-width: 50%;
+	}
+
+	.right-ing {
+        width: 65px;
+	}
+
+	.tools-right {
+		width: 100px;
+	}
+
+	.ingredient-item h4 {
+	    font-size: 14px;
+	    text-align: center;
+	}
+
+	.ingredient-item ul li {
+	    font-size: 12px;
+	    height: 55px;
+	}
+
+	.editing-section {
+	    height: 440px;
+	}
+
+	.form-tab option {
+	    text-align: center;
+	    width: 100%;
+	    margin: 2px 0;
+	}
+
+	.form-section label {
+	    width: 100%;
+	    padding: 0;
+	    margin: 5px 0;
+	}
+
+	.form-section input {
+	    width: 100%;
+	}
+
+	.form-btn {
+	    top: 330px;
+	}
+
+	.selectedHeader h1 {
+	    text-align: center;
+	    margin-top: -35px;
+	}
+
+	.selectedHeader button {
+	    position: relative;
+	    top: 84px;
+	    font-size: 8px;
+	    text-align: center;
+	    left: -29px;
+	}
+
+	#spec_specific, #direction, #tool_use {
+	    width: 100%;
+	}
+
+
+	.list-group-edit-container .left-item {
+	    width: 93px;
+	}
+
+	.popupAdditem {
+	    width: 100%;
+	    left: 0;
+	}
+
+ 
+ 
+ } /*  /426  ::::::::::::::::::::::::::::::::::::::::::: */
+ 

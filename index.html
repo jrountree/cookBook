@@ -16,25 +16,15 @@
 		<!-- jQuery & Angularjs -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-		<script src="https://rawgithub.com/angular-ui/ui-sortable/master/src/sortable.js"></script>
-		 <!-- Sortable.js -->
-		<script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
-
-		<!-- ng-sortable.js -->
-		<script src="http://rubaxa.github.io/Sortable/ng-sortable.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
+		
 		<!--Bootstrap -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 
-	<!-- LOCAL SCRIPTS -->
-		<script src="scripts/app.js"></script>
-		<script src="scripts/jQuery.js"></script>
-		<script src="scripts/cookbookController.js"></script>
-		<script src="scripts/cookbookFactory.js"></script>
-		<script src="scripts/directives/directives.js"></script>
-		<script src="scripts/controllers/main.js"></script>
-		<script src="scripts/controllers/sortableController.js"></script>
+	
 	<!-- FAVICON -->
 		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
@@ -47,8 +37,10 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Featured Savory</a></li>
-					<li><a href="#">Featured Dessert</a></li>
+					<!--  * Disabled for now, feature coming 
+						<li><a href="#">Featured Savory</a></li>
+						<li><a href="#">Featured Dessert</a></li>
+					-->
 			    </ul>
 			    <ul class="nav navbar-nav navbar-right">
 					<li><a href="#" ng-click="toggleSignUpon()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -95,55 +87,27 @@
 				</form>
 			</div>
 		</div>
-		<div class="pop-up off" ng-class="popToggle">	
-			<div class="popup-container">
-				<div class="popup-header">
-					<h1>Step by Step</h1>
-					<h2>Directions</h2>
-				</div>
-				<div class="popup-body" >
-					<h3>Step 1</h3>
-					<div class="overflow-scroll">
-						<p>Preheat oven to 375</p>
-					</div>
-				</div>
-				<div class="popup-nav">
-					<a link="#" class="popbtn pop-left">Previous Step</a>
-					<a link="#" class="popbtn pop-right">Next Step</a>
-					<a link="#" class="popexitbtn pop-bottom" ng-click="popUpOff()">Exit Step by Step</a>
-				</div>
-			</div>
-		</div>	
+			
 		<div class="content-container clearfix">
 			<div class="tab">
-				<a link="#" class="inactive" ng-class="recipeActive" ng-click="toggleRecipeOn()">Recipe Sheet</a>
-				<a link="#" class="inactive" ng-class="editActive" ng-click="toggleEditOn()">Edit Recipe <i class="fa fa-pencil-square fa-lg mr-md-4"> </i></a>
-				<a link="#" class="sbsBtb" ng-click="popUpOn()">Start <span class="importantTxt">Step By Step</span> Directions</a>	
+				<a link="#" class="" ng-class="recipeActive" ng-click="toggleRecipeOn()">Recipe Sheet</a>
+				<a link="#" class="" ng-class="editActive" ng-click="toggleEditOn()">Edit Recipe <i class="fa fa-pencil-square fa-lg mr-md-4"> </i></a>
 			</div>	
 	<!-- Recipe Sheet -->
 		<div class="tabsheet clearfix" ng-class="recipeOn" ng-repeat="recipe in cookBookdata">
-		<section class="img-section left-align clearfix">
-			<div class="img-container"><img ng-src="{{recipe.image}}" alt="{{recipe.image}}" /></div>
-			<div class="img-nav-container">
-				<a href="#"></a>
-				<a href="#"></a>
-				<a href="#"></a>
-				<a href="#"></a>
-				<a href="#"></a>
-				<a href="#"></a>
+		<section class="img-section left-align clearfix" ng-controller="imgNav">
+		<div class="img-container" ><img ng-src="{{imgDisplay}}" alt="{{imgDisplay}}" ng-if="!!imgDisplay" /></div>
+			<div class="img-nav-container" > 
+				<a href="" ng-repeat="img in recipe.imageList" data="{{$index}}" ng-click="imgSelect($event)"><img ng-src="{{img.imgUrl}}" alt="{{img.imgUrl}}"/></a>
 			</div>
 		</section>
-		<section class="recipe-review right-align clearfix">
-			<div class="recipe-header">
+		<section class="recipe-review right-align clearfix" >
+			<div class="recipe-header" ng-controller="rateCtrl">
 				<h1>{{recipe.name}}</h1>
-				<ul class="stars">
-					<li class="star">&starf;</li>
-					<li class="star">&starf;</li>
-					<li class="star">&starf;</li>
-					<li class="star">&starf;</li>
-					<li class="star">&star;</li>
+				<ul class="stars" ng-model="rating" ng-bind-html="starRating">
+
 				</ul>
-				<h2>{{recipe.recipeBy}}</h2>
+				<h2>Recipe By: {{recipe.recipeBy}}</h2>
 			</div>
 			<div class="recipe-summery">
 				<p>{{recipe.description}}</p>
@@ -154,20 +118,14 @@
 			<div class="recipe-lefthalf left-align clearfix">
 				<div class="direct-overview">
 					<h4>Cooking Specs</h4>
-					<ul>
-						<li>Serving Size:</li>
-						<li>Oven Temp:</li>
-						<li>Total Time:</li>
-						<li>Prep Time:</li>
-						<li>Cook Time:</li>
-					</ul>
-					<ul>
-						<li>{{recipe.serving}}</li>
-						<li>{{recipe.temp}}</li>
-						<li>{{recipe.totalTime}}</li>
-						<li>{{recipe.prepTime}}</li>
-						<li>{{recipe.cookTime}}</li>
-					</ul>
+					<div ng-repeat="spec in recipe.specs">
+						<ul>
+							<li >{{spec.specName}}</li>						
+						</ul>
+						<ul>
+							<li>{{spec.specData}}</li>
+						</ul>
+					</div>
 				</div>
 				<div class="section-header">
 					<h3>Ingredients</h3>
@@ -206,8 +164,6 @@
 					</ul>
 				</div>	
 			</div>
-			
-			<div class="divider clearfix"></div>
 			<div class="recipe-righthalf right-align clearfix">
 				<div class="section-header">
 					<h3>Directions</h3>
@@ -223,108 +179,161 @@
 	</div> <!-- End Recipe Sheet -->
 	<!-- Edit Sheet Sheet -->
 	<div class="tabsheet clearfix off scrollAdj" ng-class="editOn" ng-repeat="recipe in cookBookdata" ng-controller="editcontroller">
-		<section>
+		<section class="editing-section">
 			<div class="form-tab" ng-model="selected_value">
-				<option class="inactive" ng-class="tab1class" ng-click="tab1On()" value="Ingredients">Add Ingredient</a>
-				<option class="inactive" ng-class="tab2class" ng-click="tab2On()" value="Tools">Add Tool</a>
-				<option class="inactive" ng-class="tab3class" ng-click="tab3On()" value="Steps">Add Direction</a>
-				<option class="inactive" ng-class="tab4class" ng-click="tab4On()" value="Cooking Specs">Add Specs</a>
+
+				<option ng-click="usrSelect('Ingredients')" class="inactive" ng-class="tab1" value="Ingredients">Add Ingredient</a>
+				<option ng-click="usrSelect('Tools')" class="inactive" ng-class="tab2" value="Tools">Add Tool</a>
+				<option ng-click="usrSelect('Specs')" class="inactive" ng-class="tab3" value="Cooking Specs">Add Specs</a>
+				
 			</div>	
 			<div class="form-sheet" ng-class="sheet1On">
 
-				<form name="frm" ng-submit="addIngredient()" novalidate>
+				<form name="frmIng" ng-submit="addItemToList()" novalidate>
 					<div class="form-section">
 						<label for="ingredient">Ingredient</label>
-						<input type="text" name="newIngredient" ng-model="newIngredient" required>
+						<input type="text" name="newIngredient" ng-model="newIngredient" required />
 					</div>
 					<div class="form-section">
 						<label for="quantity">Quantity</label>
-						<input type="text" name="newQty" ng-model="newQty" required>
+						<input type="text" name="newQty" ng-model="newQty" required />
 					</div>
 					<div class="form-section">
 						<label for="msr_type">Type of Measurement</label>
-						<input type="text" name="newType" ng-model="newType" required>
+						<input type="text" name="newType" ng-model="newType" required />
 					</div>
-						<button class="form-btn" ng-disabled="frm.$invalid">
+						<button class="form-btn" ng-disabled="frmIng.$invalid || frmIng.$pending" ng-click="popupAddOn()">
 							<i class="fa fa-plus-square fa-lg mr-md-4"> </i> 
 							Ingredient 
 						</button>
 				</form>
 			</div>
 			<div class="form-sheet off" ng-class="sheet2On">
-				<form>
+				<form name="frmTool" ng-submit="addItemToList()" novalidate>
 					<div class="form-section">
 						<label for="tool">Tool</label>
-						<input type="text" id="tool" name="user_tool">
+						<input type="text" id="tool" name="newTool" ng-model="newTool" required />
 					</div>
 					<div class="form-section">
 						<label for="tool_use">Tool Use</label>
-						<textarea id="tool_use" name="user_tool_use"></textarea>
+						<textarea id="tool_use" name="newToolUse" ng-model="newToolUse" required /></textarea>
 					</div>
-					<button type="submit" class="form-btn"><i class="fa fa-plus-square fa-lg mr-md-4"> </i> Tool</button>
-				</form>
-			</div>
-			<div class="form-sheet off" ng-class="sheet3On">
-				<form>
-					<div class="form-section">
-						<label for="direction_num">Step Number</label>
-						<input type="text" id="direction_num" name="user_direction_num">
-					</div>
-					<div class="form-section">
-						<label for="direction">Direction</label>
-						<textarea id="direction" name="user_direction"></textarea>
-					</div>
-					<button type="submit" class="form-btn"><i class="fa fa-plus-square fa-lg mr-md-4"> </i> Direction</button>
+					<button class="form-btn" ng-disabled="frmTool.$invalid || frmTool.$pending" ng-click="popupAddOn()">
+							<i class="fa fa-plus-square fa-lg mr-md-4"> </i> 
+							Tool 
+						</button>
 				</form>
 			</div>
 			<div class="form-sheet off" ng-class="sheet4On">
-				<form>
+				<form name="frmSpec" ng-submit="addItemToList()" novalidate>
 					<div class="form-section">
 						<label for="spec">Cooking Spec</label>
-						<input type="text" id="spec" name="user_spec">
+						<input type="text" id="spec" name="newSpecName" ng-model="newSpecName" required />
 					</div>
 					<div class="form-section">
 						<label for="spec_specific">Degrees / Time / etc</label>
-						<textarea id="spec_specific" name="user_spec_specific"></textarea>
+						<textarea id="spec_specific" id="spec" name="newSpecData" ng-model="newSpecData" required /></textarea>
 					</div>
-					<button type="submit" class="form-btn"><i class="fa fa-plus-square fa-lg mr-md-4"> </i> Cooking Spec</button>
+					<button class="form-btn" ng-disabled="frmSpec.$invalid || frmSpec.$pending" ng-click="popupAddOn()">
+							<i class="fa fa-plus-square fa-lg mr-md-4"> </i> 
+							Cooking Spec 
+						</button>
 				</form>
+			</div>
+
+			<div class="popupAdditem off" ng-class="popupAddOff">
+				<h3>Your item has been added!</h3>
+				<div class="popupAddBtn">
+					<p ng-click="popupAddOffbtn()">Close</p>
+				</div>
 			</div>
 		</section>
 		<section class="recipeSelection clearfix">
 			<div class="selectedHeader">
 				<button ng-click="clearitem()" >Delete Selected</button>
-				<h1>Ingredients</h1>				
+				<h1>{{usrSelectedItem}}</h1>				
 			</div>
 			<div class="selectedData">
-				<ul class="list-group" >
-					<div class="editItem list-group-item" ng-class="keep"  ng-repeat="item in recipe.ingredients" ng-mouseover="hoverChange()" ng-sortable="{animation:150}">
+				<ul class="list-group" ng-class="liGroup01" >
+					<li class="editItem list-group-item" ng-class="keep" ng-repeat="item in recipe.ingredients">
 						<input type="checkbox" ng-model="item.done" />
-						<li ng-class="{'done':item.done}">
-							<i class="fa fa-pencil-square"> </i>
-							<span ng-class="{'done':item.done}" class="listItem">
-								<span class="left-item" ng-click="editListItem()">
-									<edit-in-place value="item.type"></edit-in-place>
+						<ul class="list-group-edit-container">	
+							<li ng-class="{'done':item.done}">
+								<i class="fa fa-pencil-square"> </i>
+								<span ng-class="{'done':item.done}" class="listItem">
+									<span class="left-item" ng-click="editListItem()">
+										<edit-in-place value="item.type"></edit-in-place>
+									</span>
+									<span class="mid-item" >
+										<edit-in-place value="item.measure"></edit-in-place>
+									</span>
+									<span class="right-item" >
+										<edit-in-place value="item.measureType"></edit-in-place></span>
 								</span>
-								<span class="mid-item" >
-									<edit-in-place value="item.measure"></edit-in-place>
-								</span>
-								<span class="right-item" >
-									<edit-in-place value="item.measureType"></edit-in-place></span>
-							</span>
-							<i class="fa fa-arrows arrows" aria-hidden="true" ng-click="moveItem()"></i>
-						</li>
-					</div>	
+								
+							</li>
+						</ul>
+					</li>	
 				</ul>
-			
-			</div>
-		<div class="deleteMEiAmJustaTest" ng-controller="sortableController">
-			<ul ng-sortable="{animation:150}">
-				<li ng-repeat="itemtester in itemsTest">
-			  	 	{{itemtester.name}}
-				</li>
-			</ul>
-		</div>
+
+				<ul class="list-group" ng-class="liGroup02" >
+					<li class="editItem list-group-item" ng-class="keep" ng-repeat="item in recipe.tools" >
+						<input type="checkbox" ng-model="item.done" />
+						<ul class="list-group-edit-container">
+							<li ng-class="{'done':item.done}">
+								<i class="fa fa-pencil-square"> </i>
+								<span ng-class="{'done':item.done}" class="listItem">
+									<span class="left-item" ng-click="editListItem()">
+										<edit-in-place value="item.tool"></edit-in-place>
+									</span>
+									<span class="right-item" >
+										<edit-in-place value="item.use"></edit-in-place>
+									</span>
+								</span>
+							</li>
+						</ul>
+					</li>	
+				</ul>
+
+				<ul class="list-group" ng-class="liGroup03" >
+					<li class="editItem list-group-item" ng-class="keep" ng-repeat="item in recipe.directions" >
+						<input type="checkbox" ng-model="item.done" />
+						<ul class="list-group-edit-container">
+							<li ng-class="{'done':item.done}">
+								<i class="fa fa-pencil-square"> </i>
+								<span ng-class="{'done':item.done}" class="listItem">
+									<span class="left-item" ng-click="editListItem()">
+										<edit-in-place value="item.header"></edit-in-place>
+									</span>
+									<span class="right-item" >
+										<edit-in-place value="item.ptag"></edit-in-place>
+									</span>
+								</span>	
+							</li>
+						</ul>
+					</li>	
+				</ul>
+
+				<ul class="list-group" ng-class="liGroup04" >
+					<li class="editItem list-group-item" ng-class="keep" ng-repeat="item in recipe.specs" >
+						<input type="checkbox" ng-model="item.done" />
+						<ul class="list-group-edit-container">
+							<li ng-class="{'done':item.done}">
+								<i class="fa fa-pencil-square"> </i>
+								<span ng-class="{'done':item.done}" class="listItem">
+									<span class="left-item" ng-click="editListItem()">
+										<edit-in-place value="item.specName"></edit-in-place>
+									</span>
+									<span class="right-item" >
+										<edit-in-place value="item.specData"></edit-in-place>
+									</span>
+								</span>	
+								
+							</li>
+						</ul>	
+					</li>	
+				</ul>
+			</div> <!-- End selectedData -->
 		</section>
 	</div>	<!-- End Edit Sheet -->
 </div>	
@@ -338,11 +347,11 @@
             <div class="col-md-12">
                 <div class="footer-socials mb-5 flex-center">
                     <!--Facebook-->
-                    <a class="icons-sm fb-ic" href="" title="My Facebook" target="_blank"><i class="fa fa-facebook fa-lg mr-md-4"> </i></a>
+                    <a class="icons-sm fb-ic" href="http://jesserountree.com/" title="My Portfolio" target="_blank"><i class="fa fa-qq fa-lg mr-md-4"> </i></a>
                     <!--Google +-->
-                    <a class="icons-sm gplus-ic" href="" title="My Google Plus" target="_blank"><i class="fa fa-google-plus fa-lg mr-md-4"> </i></a>
+                    <a class="icons-sm gplus-ic" href="https://github.com/jrountree" title="My Github" target="_blank"><i class="fa fa-github fa-lg mr-md-4"> </i></a>
                     <!--Linkedin-->
-                    <a class="icons-sm li-ic" href="" title="My LinkedInn" target="_blank"><i class="fa fa-linkedin fa-lg mr-md-4"> </i></a>
+                    <a class="icons-sm li-ic" href="https://www.linkedin.com/in/jesserountree/" title="My LinkedIn" target="_blank"><i class="fa fa-linkedin fa-lg mr-md-4"> </i></a>
                 </div>
             </div>
             <!--/First column-->
@@ -361,6 +370,13 @@
 
 </footer>
 <!--/Footer-->
+
+<!-- LOCAL SCRIPTS -->
+		<script src="scripts/app.js"></script>
+		<script src="scripts/cookbookController.js"></script>
+		<script src="scripts/cookbookFactory.js"></script>
+		<script src="scripts/directives/directives.js"></script>
+		<script src="scripts/controllers/main.js"></script>
 	
 	</body>
 </html>

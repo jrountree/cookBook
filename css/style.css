@@ -238,6 +238,32 @@ button[disabled]:hover {
 }
 
 
+.popupAdditem {
+    position: absolute;
+    left: calc(50% - 200px);
+    width: 400px;
+    text-align: center;
+    background: #cae2da;
+    border: 3px solid #86a78b;
+    top: 88px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.popupAddBtn p {
+    background: #fff;
+    display: block;
+    width: 96px;
+    padding: 10px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.popupAddBtn p:hover {
+    background: #dcfff3;
+}
+
+
 /* :::: SECTIONALS :::: */
 .img-container {
     width: 100%;
@@ -266,19 +292,80 @@ button[disabled]:hover {
 }
 
 .img-nav-container a {
-    background: url("/img/strawberry-swissroll-top.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;	
-    background-position: center;
     opacity: .8;
     display: inline-block;
     width: 79px;
     height: 36px;
     margin: 3px 2px;
     border: 1px solid #fff;
+    overflow: hidden;
 }
 .img-nav-container a:hover {
 	opacity: 1;
+}
+
+.img-nav-container a img {
+    width: 100%;
+}
+
+.img-preview-container {
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.img-preview {
+    background: #fff;
+    border: 5px solid #222;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    margin: 130px auto;
+    display: block;
+    width: 750px;
+    z-index: 9999;
+}  
+
+.img-preview-window {
+    max-width: 720px;
+    margin-bottom: 20px;
+}
+
+.img-preview-window img {
+    max-height: 449px;
+}
+
+.imgbtn {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 5px 20px;
+    width: 100px;
+    margin: 10px 15px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    background: #cae2da;
+    color: #000;
+}
+
+.preview-close-btn {
+    width: 212px;
+    background: #ff8244;
+}
+
+.imgbtn:hover {
+    cursor: pointer;
+    background: #659686;
+}
+
+.preview-close-btn:hover {
+    background: #dcdcdc;
 }
 
 .recipe-review {
@@ -299,13 +386,6 @@ button[disabled]:hover {
 .recipe-righthalf {
     width: 100%;
     max-width: 627px;
-}
-
-.divider {
-    width: 1px;
-    background: #ddd;
-    float: left;
-    margin: 0 10px;
 }
 
 .section-header {
@@ -382,7 +462,7 @@ button[disabled]:hover {
 }
 
 .direct-overview {
-    width: 204px;
+    width: 254px;
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -394,7 +474,7 @@ button[disabled]:hover {
 
 .direct-overview ul {
     display: inline-block;
-    width: 100px;
+    width: 125px;
 }
 
 .direct-step {
@@ -415,6 +495,7 @@ button[disabled]:hover {
 
 .selectedHeader h1 {
     display: block;
+    max-width: 238px;
  }
 
 .selectedData {
@@ -436,8 +517,8 @@ button[disabled]:hover {
     letter-spacing: 2px;
 }
 
-.selectedHeader button:focus {...........0000000000   
-    border: none;...........0000000000   
+.selectedHeader button:focus {
+    border: none;
 }
 
 .selectedHeader button:hover {
@@ -532,6 +613,15 @@ button[disabled]:hover {
     width: 680px;
 }
 
+.list-group-edit-container {
+    display: inline-block;
+    width: 650px;
+}
+
+.list-group-edit-container li {
+    width: 100% !important;
+}
+
 .list-group-item:hover > .list-group li {
     background: #000;
 }
@@ -577,16 +667,25 @@ button[disabled]:hover {
 .left-item {
     width: 445px;
     display: inline-block;
+    max-width: 235px;
+    max-height: 21px;
+    overflow: hidden;    
 }
 
 .mid-item {
     position: absolute;
     right: 194px;
+    max-width: 235px;
+    max-height: 21px;
+    overflow: hidden;
 }
 
 .right-item {
     position: absolute;
     right: 70px;
+    max-width: 235px;
+    max-height: 21px;
+    overflow: hidden;    
 }
 
 .edit-in-place span {
@@ -670,6 +769,24 @@ footer a:hover {
 
 
 /* TESTING */
+
+.ratingContainer {
+    width: 190px;
+    margin: 0 auto;
+}
+
+.starContainer {
+    position: relative;
+}
+
+.rateBar {
+    width: 100%;
+    background: #cae2da;
+    height: 50px;
+    top: -42px;
+    position: relative;
+}
+
 
 .list {
     list-style: none outside none;

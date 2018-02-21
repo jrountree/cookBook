@@ -1,14 +1,10 @@
 [
 	{	"name": "Chocolate Covered Strawberry Swissroll",
 		"recipeBy": "Jesse Rountree",
-		"stars": 5,
+		"stars": 4,
 		"description":"This decadent swissroll cake combines the savory sweetness of chocolate covered strawberries with the delicate flavors of a shortcake inspired rolled sponge, all packed with an amazing cream cheese frosting. Is it strawberry shortcake? Is it a chocolate covered strawberry?  Is is a swissroll cake?  The answer is, YES!",
 		"note": "For Dusting, so use as much as you want, or as little as you want",
-		"serving": 10,
-		"temp": 375,
-		"totalTime": "1 Hour",
-		"prepTime": "45 Minutes",
-		"cookTime": "10 - 15 Minutes",
+		
 		"image": "/img/strawberry-swissroll.jpg",
 		"imageList": [
 			{"imgName": "Chocolate Covered Swissroll display view", "imgUrl":"/img/strawberry-swissroll.jpg"},
@@ -18,6 +14,13 @@
 			{"imgName": "Chocolate Covered Swissroll front view", "imgUrl":"/img/strawberry-swissroll-front.jpg"},
 			{"imgName": "Chocolate Covered Swissroll back view", "imgUrl":"/img/strawberry-swissroll-back.jpg"}
 			],
+		"specs": [
+			{"specName":"Serving Size","specData": 10},
+			{"specName":"Oven Temp", "specData": 375},
+			{"specName":"Total Time", "specData": "1 Hour"},
+			{"specName":"Perperation Time", "specData": "45 Minutes"},
+			{"specName":"Cook Time", "specData": "10 - 15 Minutes"}
+			],	
 		"ingredients": [
 			{"type":"Powdered Sugar", "measure": 4.5, "measureType": "Ounces","done":false},
 			{"type":"Powdered Sugar", "measure": "&star;", "measureType": "&star;","done":false},
@@ -43,7 +46,7 @@
 		"directions": [
 			{"header":"Step 1", "ptag":"Preheat oven to 375"},
 			{"header":"Step 2", "ptag":"Butter your Swissroll pan on bottom and edges. Cut Parchnip Paper to fit inside of your Swissroll pan to cover bottom and edges."},
-			{"header":"Step 3: Make your sponge", "ptag":"Seperate egg yokes from egg whites, keep yokes in one bowl and the whites in another."},
+			{"header":"Step 3: Make your sponge", "ptag":"Separate egg yokes from egg whites, keep yokes in one bowl and the whites in another."},
 			{"header":"Step 4", "ptag":"In Kitchen Aid, whip egg whites, 1/2 of the vanilla and water. While egg whites are whipping, slowly add in the 4.5 ounces of powdered sugar.  Whip until egg whites are fluffy and makes stiff peeks. This should take a few minutes."},
 			{"header":"Step 5", "ptag":"Remove egg whites from Kitchen Aid into a large bowl carefully, try to keep them as airy as possible.  Clean mixing bowl and whisk."},
 			{"header":"Step 6", "ptag":"In Kitchen Aid, whisk the egg yokes and whip until fluffy."},
